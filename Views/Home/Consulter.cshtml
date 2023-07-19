@@ -1,0 +1,53 @@
+﻿
+@model Parent
+
+
+<div class="list-statut">
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col statut_list ">
+                <h3 class="tilte_statut">
+                    @Model.Nom
+                </h3>
+                <a href="./Detail-1film.html"><img src="@Model.ImageURL" alt=""></a>
+            </div>
+            <div class="col statut_content">
+                <p class="description_statut">
+                    @Model.Description
+                </p>
+                <p class="statistic_statut" style="padding-bottom: 44px;">
+                    <span class="statistic1_statut">
+                        + 3M
+                        <i class="fa-regular fa-eye"></i>
+                    </span>
+                    <span class="statistic2_statut">@Model.Enfants.Count Films</span>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row ">
+
+            @foreach (var item in Model.Enfants)
+            {
+
+                
+                    <div class="col_list  col-12 col-md-6 col-lg-3">
+                         <a href="~/enfant/detail/@(item.Id)">
+                        <img class="image_list_enfant" src="@item.ImageURL" alt="">
+                        <p>@item.Nom</p>
+                         </a>
+                    </div>
+               
+            }
+        </div>
+        <div class="row">
+        <div class="col-sm-12 button_retour ">
+            <a href="/home/index" class="btn button_retour_a">Retour à la liste</a>
+        </div>
+    </div>
+
+    </div>
+
+</div>
